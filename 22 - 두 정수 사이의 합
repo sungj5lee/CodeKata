@@ -1,0 +1,19 @@
+class Solution {
+    fun solution(a: Int, b: Int): Long {
+        var answer: Long = 0
+        var i : Long
+        
+        if(a<b){
+            for(i in a.toLong()..b.toLong()){
+                answer=answer+i
+            }
+        }
+        else{
+            for(i in b.toLong()..a.toLong()){
+                answer=answer+i
+            }
+        }
+        
+        return answer
+    }
+}
