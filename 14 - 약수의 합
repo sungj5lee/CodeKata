@@ -1,0 +1,19 @@
+class Solution {
+    fun solution(n: Int): Int {
+        var answer = 0
+        var prime = 1
+        
+        while(true){
+            if(n%prime==0){
+                answer = answer + prime
+            }
+            if(2*prime>n){
+                break
+            }
+            prime++
+        }
+        answer=answer+n
+        
+        return answer
+    }
+}
