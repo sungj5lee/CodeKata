@@ -3,12 +3,9 @@ class Solution {
         var answer = 0
         var prime = 1
         
-        while(true){
+        while(2*prime<=n){
             if(n%prime==0){
                 answer = answer + prime
-            }
-            if(2*prime>n){
-                break
             }
             prime++
         }
