@@ -1,0 +1,13 @@
+import kotlin.math.sqrt
+
+class Solution {
+    fun solution(n: Long): Long {
+        var answer: Long = -1.toLong()
+        
+        if(sqrt(n.toDouble())==sqrt(n.toDouble()).toLong().toDouble()){
+            answer=(sqrt(n.toDouble()).toLong()+1)*(sqrt(n.toDouble()).toLong()+1)
+        }
+        
+        return answer
+    }
+}
