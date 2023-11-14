@@ -1,0 +1,10 @@
+class Solution {
+    fun solution(angle: Int): Int {
+        var answer: Int = angle / 90 * 2
+        if(angle%90>0){
+            answer++
+        }
+        
+        return answer
+    }
+}
