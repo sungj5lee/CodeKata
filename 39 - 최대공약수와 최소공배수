@@ -1,0 +1,17 @@
+class Solution {
+    fun solution(n: Int, m: Int): IntArray {
+        var answer = intArrayOf()
+        var i: Int
+        
+        for(i in minOf(n, m) downTo 1){
+            if(n%i==0 && m%i==0){
+                answer = answer+i
+                answer = answer+n*m/i
+                break
+            }
+        }
+        
+        
+        return answer
+    }
+}
