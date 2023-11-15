@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(phone_number: String): String {
+        var answer = phone_number.mapIndexed{idx, char -> if(idx<phone_number.length-4) '*' else char}.joinToString("")
+        return answer
+    }
+}
