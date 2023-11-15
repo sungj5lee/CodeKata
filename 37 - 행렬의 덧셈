@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(arr1: Array<IntArray>, arr2: Array<IntArray>): Array<IntArray> {
+        var answer = arr1.zip(arr2){a, b -> a.zip(b){c, d -> c+d}.toIntArray()}.toTypedArray()
+        return answer
+    }
+}
