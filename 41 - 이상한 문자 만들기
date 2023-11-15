@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(s: String): String {
+        var answer = s.split(" ").map{str -> str.mapIndexed{idx, c -> if(idx%2==0) c.uppercase() else c.lowercase()}.joinToString("")}.joinToString(" ")
+        return answer
+    }
+}
