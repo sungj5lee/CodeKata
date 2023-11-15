@@ -1,0 +1,11 @@
+class Solution {
+    fun solution(sizes: Array<IntArray>): Int {
+        var answer: Int = 0
+        var arr1 = Array(sizes.size){sizes[it].maxOf{it}}
+        var arr2 = Array(sizes.size){sizes[it].minOf{it}}
+        
+        answer=arr1.maxOf{it}*arr2.maxOf{it}
+        
+        return answer
+    }
+}
