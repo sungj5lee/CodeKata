@@ -1,0 +1,9 @@
+class Solution {
+    fun solution(price: Int, money: Int, count: Int): Long {
+        var answer: Long = price.toLong()*count.toLong()*(count.toLong()+1)/2-money.toLong()
+        if(answer<0){
+            answer=0
+        }
+        return answer
+    }
+}
