@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(t: String, p: String): Int {
+        var answer: Int = t.foldIndexed(0){idx, acc, c->if(idx<=t.length-p.length && t.substring(idx, idx+p.length).toLong() <= p.toLong()) acc+1 else acc}
+        return answer
+    }
+}
