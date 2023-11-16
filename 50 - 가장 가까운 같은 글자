@@ -1,0 +1,17 @@
+class Solution {
+    fun solution(s: String): IntArray {
+        var answer: IntArray = Array(s.length){-1}.toIntArray()
+        var i: Int
+        var j: Int
+        
+        for(i in 1..(s.length-1)){
+            for(j in 0..(i-1)){
+                if(s[j]==s[i]){
+                    answer[i]=i-j
+                }
+            }
+        }
+        
+        return answer
+    }
+}
