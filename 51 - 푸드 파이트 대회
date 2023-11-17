@@ -1,0 +1,16 @@
+class Solution {
+    fun solution(food: IntArray): String {
+        var answer: String = ""
+        var i: Int
+        var j: Int
+        
+        for(i in 1..(food.size-1)){
+            repeat(food[i]/2){
+                answer=answer+i
+            }
+        }
+        answer=answer+"0"+answer.reversed()
+        
+        return answer
+    }
+}
