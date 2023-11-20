@@ -1,0 +1,17 @@
+class Solution {
+    fun solution(k: Int, score: IntArray): IntArray {
+        var answer: IntArray = intArrayOf()
+        var arr=intArrayOf()
+        
+        for(e in score){
+            arr=arr+e
+            arr=arr.sortedArray()
+            if(arr.size>k){
+                arr=arr.drop(1).toIntArray()
+            }
+            answer=answer+arr.minOf{it}
+        }
+        
+        return answer
+    }
+}
