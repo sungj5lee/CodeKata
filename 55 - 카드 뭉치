@@ -1,0 +1,21 @@
+class Solution {
+    fun solution(cards1: Array<String>, cards2: Array<String>, goal: Array<String>): String {
+        var answer: String = "Yes"
+        var c1=cards1
+        var c2=cards2
+        
+        for(e in goal){
+            if(c1.size>0 && e.equals(c1[0])){
+                c1=c1.drop(1).toTypedArray()
+            }
+            else if(c2.size>0 && e.equals(c2[0])){
+                c2=c2.drop(1).toTypedArray()
+            } else{
+                answer="No"
+                break
+            }
+        }
+        
+        return answer
+    }
+}
