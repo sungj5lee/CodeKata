@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(k: Int, m: Int, score: IntArray): Int {
+        var answer: Int = score.sortedDescending().foldIndexed(0){idx, acc, e -> if((idx+1)%m==0) acc+m*e else acc}
+        return answer
+    }
+}
