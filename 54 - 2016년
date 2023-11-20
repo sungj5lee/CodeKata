@@ -1,0 +1,12 @@
+class Solution {
+    fun solution(a: Int, b: Int): String {
+        var answer = ""
+        var monthdays=intArrayOf(31,29,31,30,31,30,31,31,30,31,30,31)
+        var days=arrayOf("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT")
+        var dayidx=5
+        
+        answer=answer+days[(dayidx+monthdays.take(a-1).sum()+b-1)%7]
+        
+        return answer
+    }
+}
