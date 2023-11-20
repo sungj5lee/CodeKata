@@ -1,0 +1,13 @@
+class Solution {
+    fun solution(answers: IntArray): IntArray {
+        var answer = intArrayOf(
+            answers.foldIndexed(0){idx, acc, e -> if(e-1==idx%5) acc+1 else acc}, 
+            answers.foldIndexed(0){idx, acc, e -> if(intArrayOf(2, 1, 2, 3, 2, 4, 2, 5).get(idx%8)==e) acc+1 else acc}, 
+            answers.foldIndexed(0){idx, acc, e -> if(intArrayOf(3, 1, 2, 4, 5).get((idx/2)%5)==e) acc+1 else acc}
+        )
+        
+        answer=answer.foldIndexed(intArrayOf()){idx, acc, e -> if(e==answer.maxOf{it}) acc+(idx+1) else acc}
+        
+        return answer
+    }
+}
