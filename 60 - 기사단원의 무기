@@ -1,0 +1,30 @@
+class Solution {
+    fun solution(number: Int, limit: Int, power: Int): Int {
+        var answer: Int = 0
+        var sum: Int
+        
+        for(n in 1..number){
+            sum=0
+            for(m in 1..n){
+                if(n%m==0){
+                    sum++
+                }
+                if(2*m>n){
+                    if(m!=n){
+                        sum++
+                    }
+                    break
+                }
+            }
+            if(sum>limit){
+                answer=answer+power
+            }
+            else{
+                answer=answer+sum
+            }
+        }
+        
+        
+        return answer
+    }
+}
