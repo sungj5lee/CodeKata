@@ -1,0 +1,28 @@
+class Solution {
+    fun solution(babbling: Array<String>): Int {
+        var answer: Int = 0
+        var isWord: Boolean
+        var news: String
+        
+        for(s in babbling){
+            isWord=true
+            news=s
+            for(x in arrayOf("aya", "ye", "woo", "ma")){
+                news=news.replace(x, x.uppercase().substring(0,1))
+            }
+            for(i in 1..(news.length-1)){
+                if(news[i]==news[i-1]){
+                    isWord=false
+                }
+            }
+            if(news.compareTo(news.uppercase())!=0){
+                isWord=false
+            }
+            if(isWord){
+                answer++
+            }
+        }
+        
+        return answer
+    }
+}
