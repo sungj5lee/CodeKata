@@ -1,0 +1,23 @@
+class Solution {
+    fun solution(lottos: IntArray, win_nums: IntArray): IntArray {
+        var answer: IntArray = lottos.fold(intArrayOf(7,7)){acc, e -> 
+            if(e==0){
+                acc[0]=acc[0]-1
+            }
+            else if(win_nums.contains(e)){
+                acc[0]=acc[0]-1
+                acc[1]=acc[1]-1
+            }
+            
+            acc
+        }
+        if(answer[0]==7){
+            answer[0]=6
+        }
+        if(answer[1]==7){
+            answer[1]=6
+        }
+        
+        return answer
+    }
+}
