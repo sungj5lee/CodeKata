@@ -1,0 +1,17 @@
+class Solution {
+    fun solution(n: Int, m: Int, section: IntArray): Int {
+        var answer: Int = 1
+        var min=-1
+        for(e in section){
+            if(min==-1){
+                min=e
+            }
+            else if(e-min>=m){
+                min=e
+                answer++
+            }
+        }
+        
+        return answer
+    }
+}
