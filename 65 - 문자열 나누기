@@ -1,0 +1,28 @@
+class Solution {
+    fun solution(s: String): Int {
+        var answer: Int = 0
+        var chartemp=' '
+        var count=0
+        
+        for(c in s){
+            if(chartemp==' '){
+                chartemp=c
+            }
+            if(chartemp==c){
+                count++
+            }
+            if(chartemp!=c){
+                count--
+            }
+            if(count==0){
+                chartemp=' '
+                answer++
+            }
+        }
+        if(count!=0){
+            answer++
+        }
+        
+        return answer
+    }
+}
