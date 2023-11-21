@@ -1,0 +1,22 @@
+class Solution {
+    fun solution(keymap: Array<String>, targets: Array<String>): IntArray {
+        var answer: IntArray = intArrayOf()
+        var lettermap=mapOf('0' to 0)
+        var tempmap: Map<Char, Int>
+        
+        for(s in keymap){
+            tempmap=s.toCharArray().distinct().associateWith{s.indexOf(it)}
+            lettermap=(lettermap.keys+tempmap.keys).associateWith{arrayOf(lettermap.getOrElse(it){1000}, tempmap.getOrElse(it){1000}).minOf{it}}
+        }
+        for(s in targets){
+            if(s.fold(false){acc, e -> if(lettermap.keys.contains(e)) acc else acc||true}){
+                answer=answer+(-1)
+            }
+            else{
+                answer=answer+s.sumOf{lettermap[it]!!+1}
+            }
+        }
+        
+        return answer
+    }
+}
