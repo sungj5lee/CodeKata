@@ -1,0 +1,18 @@
+class Solution {
+    fun solution(X: String, Y: String): String {
+        var answer: String = ""
+        
+        for(i in 9 downTo 0){
+            answer=answer+i.toString().repeat(arrayOf(X.count{it==i.digitToChar()}, Y.count{it==i.digitToChar()}).minOf{it})
+        }
+        
+        if(answer.take(1)=="0"){
+            answer="0"
+        }
+        if(answer==""){
+            answer="-1"
+        }
+        
+        return answer
+    }
+}
