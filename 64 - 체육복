@@ -1,0 +1,20 @@
+class Solution {
+    fun solution(n: Int, lost: IntArray, reserve: IntArray): Int {
+        var answer = 0
+        var lost2=lost.sorted().subtract(reserve.toMutableList()).toMutableList()
+        var reserve2=reserve.sorted().subtract(lost.toMutableList()).toMutableList()
+        
+        answer=n-lost2.size
+        for(i in lost2){
+            for(j in reserve2){
+                if(i-j==1 || j-i==1){
+                    answer++
+                    reserve2.remove(j)
+                    break
+                }
+            }
+        }
+        
+        return answer
+    }
+}
