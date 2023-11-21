@@ -1,0 +1,21 @@
+class Solution {
+    fun solution(s: String, skip: String, index: Int): String {
+        var answer: String = ""
+        var steps: Int
+        var chartemp: Char
+        
+        for(c in s){
+            steps=0
+            chartemp=c
+            while(steps!=index){
+                chartemp='a'+(chartemp-'a'+1)%26
+                if(!skip.contains(chartemp.toString())){
+                    steps++
+                }
+            }
+            answer=answer+chartemp
+        }
+        
+        return answer
+    }
+}
