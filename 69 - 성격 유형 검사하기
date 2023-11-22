@@ -1,0 +1,27 @@
+class Solution {
+    fun solution(survey: Array<String>, choices: IntArray): String {
+        var answer: String = ""
+        var perarr=arrayOf("RT", "CF", "JM", "AN")
+        var pointarr=arrayOf(0,0,0,0)
+        // var debug=intArrayOf()
+        
+        for(i in 0..(survey.size-1)){
+            if(perarr.contains(survey[i])){
+                pointarr[perarr.indexOf(survey[i])] += 4-choices[i]
+            }
+            else if(perarr.contains(survey[i].reversed())){
+                pointarr[perarr.indexOf(survey[i].reversed())] += choices[i]-4
+            }
+        }
+        for(i in 0..3){
+            if(pointarr[i]>=0){
+                answer=answer+perarr[i][0]
+            }
+            else{
+                answer=answer+perarr[i][1]
+            }
+        }
+        // answer=debug.joinToString("")
+        return answer
+    }
+}
