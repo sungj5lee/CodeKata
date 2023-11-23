@@ -1,0 +1,11 @@
+class Solution {
+    fun solution(today: String, terms: Array<String>, privacies: Array<String>): IntArray {
+        var answer: IntArray = intArrayOf()
+        var termap=terms.associate{Pair(it.take(1), it.drop(2).toInt())}
+        var todmap=today.split('.').map{it.toInt()}
+        
+        answer=privacies.map{it.take(10).split('.').zip(todmap){a, b -> b-a.toInt()}}.mapIndexed{idx, e -> termap[privacies[idx].takeLast(1)]!!*28-1-12*28*e[0]-28*e[1]-e[2]}.withIndex().filter{it.value<0}.map{it.index+1}.toIntArray()
+        
+        return answer
+    }
+}
