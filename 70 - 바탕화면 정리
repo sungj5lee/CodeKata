@@ -1,0 +1,11 @@
+class Solution {
+    fun solution(wallpaper: Array<String>): IntArray {
+        var answer: IntArray = intArrayOf(
+            wallpaper.indexOfFirst{it.contains('#')},
+            wallpaper.filter{it.contains('#')}.minOf{it.indexOfFirst{it=='#'}},
+            wallpaper.indexOfLast{it.contains('#')}+1,
+            wallpaper.filter{it.contains('#')}.maxOf{it.indexOfLast{it=='#'}}+1
+        )
+        return answer
+    }
+}
