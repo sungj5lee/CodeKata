@@ -1,0 +1,56 @@
+class Solution {
+    fun solution(park: Array<String>, routes: Array<String>): IntArray {
+        var answer: IntArray = intArrayOf(park.indexOfFirst{it.contains('S')}, park[park.indexOfFirst{it.contains('S')}].indexOf('S'))
+        var goodflag: Boolean
+        
+        for(e in routes){
+            goodflag=false
+            if(e.take(1)=="N"){
+                for(i in 1..(e.drop(2).toInt())){
+                    if(answer[0]-i<0 || park[answer[0]-i][answer[1]]=='X'){
+                        goodflag=true
+                        break
+                    }
+                }
+                if(!goodflag){
+                    answer[0]=answer[0]-e.drop(2).toInt()
+                }
+            }
+            else if(e.take(1)=="S"){
+                for(i in 1..(e.drop(2).toInt())){
+                    if(answer[0]+i>park.size-1 || park[answer[0]+i][answer[1]]=='X'){
+                        goodflag=true
+                        break
+                    }
+                }
+                if(!goodflag){
+                    answer[0]=answer[0]+e.drop(2).toInt()
+                }
+            }
+            else if(e.take(1)=="W"){
+                for(i in 1..(e.drop(2).toInt())){
+                    if(answer[1]-i<0 || park[answer[0]][answer[1]-i]=='X'){
+                        goodflag=true
+                        break
+                    }
+                }
+                if(!goodflag){
+                    answer[1]=answer[1]-e.drop(2).toInt()
+                }
+            }
+            else if(e.take(1)=="E"){
+                for(i in 1..(e.drop(2).toInt())){
+                    if(answer[1]+i>park[0].length-1 || park[answer[0]][answer[1]+i]=='X'){
+                        goodflag=true
+                        break
+                    }
+                }
+                if(!goodflag){
+                    answer[1]=answer[1]+e.drop(2).toInt()
+                }
+            }
+        }
+        
+        return answer
+    }
+}
