@@ -1,0 +1,15 @@
+class Solution {
+    fun solution(n: Int): Int {
+        var answer = 0
+        var preanswer=1
+        
+        repeat(n){
+            answer=answer+preanswer
+            preanswer=answer-preanswer
+            answer=answer%1234567
+            preanswer=preanswer%1234567
+        }
+        
+        return answer
+    }
+}
