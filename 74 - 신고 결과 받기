@@ -1,0 +1,27 @@
+class Solution {
+    fun solution(id_list: Array<String>, report: Array<String>, k: Int): IntArray {
+        var answer: IntArray = Array<Int>(id_list.size){0}.toIntArray()
+        var reparr=id_list.associate{Pair(it, mutableSetOf<String>())}
+        var countarr=id_list.associate{Pair(it, 0)}.toMutableMap()
+        
+        for(e in report){
+            reparr[e.split(' ')[0]]!!+=e.split(' ')[1]
+        }
+        for((key, v) in reparr){
+            for(e in v){
+                countarr[e]=countarr[e]!!+1
+            }
+        }
+        for((key, v) in countarr){
+            if(v>=k){
+                for((idx, reports) in reparr.values.withIndex()){
+                    if(reports.contains(key)){
+                        answer[idx]++
+                    }
+                }
+            }
+        }
+        
+        return answer
+    }
+}
