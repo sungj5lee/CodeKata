@@ -1,0 +1,23 @@
+class Solution {
+    fun solution(arr: IntArray): Int {
+        var answer = arr.sorted()[0]
+        var gcf: Int
+        var other: Int
+        var temp: Int
+        
+        if(arr.size>1){
+            for(e in arr.sorted()){
+                gcf=answer
+                other=e
+                while(other%gcf!=0){
+                    temp=gcf
+                    gcf=other%gcf
+                    other=temp
+                }
+                answer=answer*e/gcf
+            }
+        }
+        
+        return answer
+    }
+}
