@@ -1,0 +1,18 @@
+class Solution {
+    fun solution(s: String): IntArray {
+        var answer: IntArray = intArrayOf()
+        var zerocount=0
+        var binarycount=0
+        var str=s
+        
+        while(str!="1"){
+            binarycount++
+            zerocount=zerocount+str.filter{it=='0'}.length
+            str=str.filter{it=='1'}.length.toString(2)
+        }
+        answer=answer+binarycount
+        answer=answer+zerocount
+        
+        return answer
+    }
+}
