@@ -1,0 +1,17 @@
+class Solution {
+    fun solution(brown: Int, yellow: Int): IntArray {
+        var answer = intArrayOf((brown-4)/2, 0)
+        
+        while(true){
+            answer[0]--
+            answer[1]++
+            if(answer[0]*answer[1]==yellow){
+                answer[0]=answer[0]+2
+                answer[1]=answer[1]+2
+                break
+            }
+        }
+        
+        return answer
+    }
+}
