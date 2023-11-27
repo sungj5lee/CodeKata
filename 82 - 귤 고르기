@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(k: Int, tangerine: IntArray): Int {
+        var answer: Int = tangerine.distinct().map{a -> tangerine.count{b -> b==a}}.sortedDescending().runningFold(0){acc, e -> acc+e}.indexOfFirst{it>=k}
+        return answer
+    }
+}
