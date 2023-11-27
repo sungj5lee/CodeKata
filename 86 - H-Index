@@ -1,0 +1,7 @@
+class Solution {
+    fun solution(citations: IntArray): Int {
+        var answer = citations.sortedDescending().withIndex().findLast{(idx, e) -> e>=idx+1}?.index ?: -1
+        answer++
+        return answer
+    }
+}
