@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(clothes: Array<Array<String>>): Int {
+        var answer = clothes.map{it[1]}.distinct().fold(1){acc, e -> acc*(clothes.count{it[1]==e}+1)}-1
+        return answer
+    }
+}
