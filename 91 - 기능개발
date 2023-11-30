@@ -1,0 +1,23 @@
+class Solution {
+    fun solution(progresses: IntArray, speeds: IntArray): IntArray {
+        var answer = intArrayOf() 
+        var dayarr=progresses.zip(speeds){a, b -> if((100-a)%b==0) (100-a)/b else (100-a)/b+1}
+        var maxnum=-1
+        var count=0
+        
+        for(i in 0..(dayarr.size-1)){
+            count++
+            if(maxnum==-1){
+                maxnum=dayarr[i]
+            }
+            else if(maxnum<dayarr[i]){
+                answer=answer+(count-1)
+                count=1
+                maxnum=dayarr[i]
+            }
+        }
+        answer=answer+count
+        
+        return answer
+    }
+}
