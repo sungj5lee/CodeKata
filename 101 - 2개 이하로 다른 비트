@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(numbers: LongArray): LongArray {
+        var answer: LongArray = numbers.map{("0"+it.toString(2)+"1").reversed().replaceFirst("10", "01").drop(1).reversed()}.map{it.toLongOrNull(2)!!}.toLongArray()
+        return answer
+    }
+}
