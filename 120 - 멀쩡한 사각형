@@ -1,0 +1,18 @@
+class Solution {
+    fun solution(w: Int, h: Int): Long {
+        var answer: Long = 0
+        var a=maxOf(w, h).toLong()
+        var b=minOf(w, h).toLong()
+        var gcd: Long
+        
+        while(a%b!=0.toLong()){
+            gcd=b
+            b=a%b
+            a=gcd
+        }
+        gcd=b
+        answer=w.toLong()*h.toLong()-(w+h-gcd)
+ 
+        return answer
+    }
+}
