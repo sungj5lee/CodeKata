@@ -1,0 +1,27 @@
+class Solution {
+    fun solution(cards: IntArray): Int {
+        var answer: Int = 0
+        var checkarr=IntArray(cards.size)
+        var boxsizearr=intArrayOf()
+        var idx: Int
+        var ele: Int
+        var count: Int
+        
+        for((i, e) in cards.withIndex()){
+            idx=i
+            ele=e
+            count=0
+            while(checkarr[idx]!=1){
+                checkarr[idx]=1
+                count++
+                idx=cards.withIndex().elementAt(ele-1).index
+                ele=cards.withIndex().elementAt(ele-1).value
+            }
+            boxsizearr=boxsizearr+count
+        }
+        boxsizearr=boxsizearr.sortedDescending().toIntArray()+0
+        answer=boxsizearr[0]*boxsizearr[1]
+        
+        return answer
+    }
+}
