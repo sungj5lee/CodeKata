@@ -1,0 +1,23 @@
+class Solution {
+    fun solution(k: Int, ranges: Array<IntArray>): DoubleArray {
+        var answer: DoubleArray = doubleArrayOf()
+        var lothararr=intArrayOf(k)
+        
+        while(lothararr.last()!=1){
+            if(lothararr.last()%2==0){
+                lothararr=lothararr+lothararr.last()/2
+            }
+            else{
+                lothararr=lothararr+(lothararr.last()*3+1)
+            }
+        }
+        ranges.forEach{
+            if(it[0]<=(lothararr.size+it[1]-1))
+                answer=answer+(lothararr.slice(it[0]..(lothararr.size+it[1]-1)).sum()*2-lothararr[it[0]]-lothararr[lothararr.size+it[1]-1]).toDouble()/2
+            else
+                answer=answer+(-1.0)
+        }
+        
+        return answer
+    }
+}
