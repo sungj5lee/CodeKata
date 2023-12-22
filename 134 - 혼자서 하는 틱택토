@@ -1,0 +1,48 @@
+class Solution {
+    fun solution(board: Array<String>): Int {
+        var answer: Int = -1
+        var o=board.map{it.count{it=='O'}}.sum()
+        var x=board.map{it.count{it=='X'}}.sum()
+        var lines=charArrayOf()
+        
+        board.forEach{
+            when(it){
+                "OOO" -> lines=lines+'O'
+                "XXX" -> lines=lines+'X'
+                else -> lines=lines+'.'
+            }
+        }
+        for(i in 0..2){
+            when(board.map{it[i]}.joinToString("")){
+                "OOO" -> lines=lines+'O'
+                "XXX" -> lines=lines+'X'
+                else -> lines=lines+'.'
+            }
+        }
+        when(board.mapIndexed{idx, s->s[idx]}.joinToString("")){
+            "OOO" -> lines=lines+'O'
+            "XXX" -> lines=lines+'X'
+            else -> lines=lines+'.'
+        }
+        when(board.mapIndexed{idx, s->s[2-idx]}.joinToString("")){
+            "OOO" -> lines=lines+'O'
+            "XXX" -> lines=lines+'X'
+            else -> lines=lines+'.'
+        }
+        
+        if(!(o==x || o==x+1)){
+            answer=0
+        }
+        else if(lines.contains('O') && lines.contains('X')){
+            answer=0
+        }
+        else if((lines.contains('X') && o==x+1) || (lines.contains('O') && o==x)){
+            answer=0
+        }
+        else{
+            answer=1
+        }
+        
+        return answer
+    }
+}
