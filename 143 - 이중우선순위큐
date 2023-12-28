@@ -1,0 +1,21 @@
+class Solution {
+    fun solution(operations: Array<String>): IntArray {
+        var answer = intArrayOf()
+        var q=mutableListOf<Int>()
+        
+        for(cmd in operations){
+            when(cmd[0]){
+                'I' -> q.add(cmd.slice(2..(cmd.length-1)).toInt())
+                'D' -> when(cmd[2]){
+                    '1' -> q.remove(q.maxOfOrNull{it})
+                    '-' -> q.remove(q.minOfOrNull{it})
+                }
+            }
+        }
+        
+        answer=answer+(q.maxOfOrNull{it} ?: 0)
+        answer=answer+(q.minOfOrNull{it} ?: 0)
+        
+        return answer
+    }
+}
