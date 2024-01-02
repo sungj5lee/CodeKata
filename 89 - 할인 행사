@@ -1,0 +1,13 @@
+class Solution {
+    fun solution(want: Array<String>, number: IntArray, discount: Array<String>): Int {
+        var answer: Int = 0
+        
+        for(i in 0..(discount.size-10)){
+            if(want.map{food -> discount.slice(i..(i+9)).count{it==food}}.toIntArray().contentEquals(number)){
+                answer++
+            }
+        }
+        
+        return answer
+    }
+}
