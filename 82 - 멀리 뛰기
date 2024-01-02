@@ -1,0 +1,19 @@
+class Solution {
+    fun solution(n: Int): Long {
+        var answer: Long = 0
+        var fib1: Long = 0
+        var fib2: Long = 1
+        
+        repeat(n){
+            fib2=fib2+fib1
+            fib1=fib2-fib1
+            if(fib1>1234567){
+                fib2=fib2%1234567
+                fib1=fib1%1234567
+            }
+        }
+        answer=fib2%1234567
+        
+        return answer
+    }
+}
