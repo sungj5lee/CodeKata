@@ -1,0 +1,52 @@
+class Solution {
+    fun solution(s: String): Int {
+        var answer: Int = -1
+        var stack=""
+        var numArr=intArrayOf()
+        
+        for(c in s){
+            numArr=numArr+((numArr?.lastOrNull() ?: 0)+isTopOrBot(c))
+        }
+        
+        val offset=numArr.indexOfFirst{it==numArr.minOf{it}}
+        
+        for(i in 0..(s.length-1)){
+            val idx=(i+offset+1)%s.length
+            if(isMatch(stack?.lastOrNull() ?: 'a', s[idx])){
+                stack=stack.dropLast(1)
+            }
+            else{
+                stack=stack+s[idx]
+            }
+        }
+        if(stack.isEmpty()){
+            answer=numArr.count{it==numArr.minOf{it}}
+        }
+        else{
+            answer=0
+        }
+        
+        return answer
+    }
+    
+    fun isTopOrBot(c: Char): Int{
+        if(c in "[{("){
+            return 1
+        }
+        else{
+            return -1
+        }
+    }
+    
+    fun isMatch(c1: Char, c2: Char): Boolean{
+        var isIt: Boolean
+        when(c1.toString()+c2.toString()){
+            "{}" -> isIt=true
+            "()" -> isIt=true
+            "[]" -> isIt=true
+            else -> isIt=false
+        }
+        
+        return isIt
+    }
+}
