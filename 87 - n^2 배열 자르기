@@ -1,0 +1,13 @@
+import kotlin.math.max
+
+class Solution {
+    fun solution(n: Int, left: Long, right: Long): IntArray {
+        var answer: IntArray = intArrayOf()
+        
+        for(i in left..right){
+            answer=answer+(max(i/n, i%n).toInt()+1)
+        }
+        
+        return answer
+    }
+}
