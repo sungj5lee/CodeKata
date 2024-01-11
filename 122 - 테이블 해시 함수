@@ -1,0 +1,6 @@
+class Solution {
+    fun solution(data: Array<IntArray>, col: Int, row_begin: Int, row_end: Int): Int {
+        var answer: Int = data.sortedWith(compareBy({it[col-1]}, {-it[0]})).slice((row_begin-1)..(row_end-1)).mapIndexed{idx, it -> it.map{y -> y%(idx+row_begin)}.sum()}.reduce{acc, e -> acc xor e}
+        return answer
+    }
+}
